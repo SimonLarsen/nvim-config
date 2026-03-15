@@ -25,12 +25,3 @@ require("nvim-treesitter").setup{
 
 require("nvim-treesitter").install{ "python" }
 
-require("bufferline").setup{}
-
-require("lualine").setup{}
-
-require("neo-tree").setup{
-    options = {
-        theme = "dracula",
-    }
-}

@@ -1,8 +1,10 @@
 return {
     {
         "akinsho/bufferline.nvim",
+        lazy = false,
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
+        opts = {},
         keys={
             { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
             { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
@@ -12,20 +14,23 @@ return {
     },
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' }
+        lazy = false,
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = {},
     },
     {
         "nvim-neo-tree/neo-tree.nvim",
+        lazy = false,
         branch = "v3.x",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
             "nvim-tree/nvim-web-devicons", -- optional, but recommended
         },
-        lazy = false, -- neo-tree will lazily load itself
         ---@module 'neo-tree'
         ---@type neotree.Config
         opts = {
+            theme = "dracula",
         },
         keys = {
             {
@@ -36,5 +41,8 @@ return {
                 desc = "NeoTree filesystem (cwd)",
             },
         },
-    }
+    },
+    {
+        "Vigemus/iron.nvim",
+    },
 }
