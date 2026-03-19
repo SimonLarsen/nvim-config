@@ -31,18 +31,26 @@ return {
         ---@type neotree.Config
         opts = {
             theme = "dracula",
+            sources = { "filesystem", "git_status", "document_symbols" },
+            source_selector = {
+                winbar = true,
+                statusline = false,
+            },
         },
         keys = {
             {
-                "<leader>tf",
+                "<leader>ef",
                 function()
-                    require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
+                    require("neo-tree.command").execute({
+                        action = "focus",
+                        source = "filesystem",
+                        position = "left",
+                        toggle = false,
+                        dir = vim.uv.cwd(),
+                    })
                 end,
                 desc = "NeoTree filesystem (cwd)",
             },
         },
-    },
-    {
-        "Vigemus/iron.nvim",
     },
 }
