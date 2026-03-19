@@ -23,4 +23,3 @@ vim.keymap.set("n", "<C-l>", "<cmd>vertical resize +2<cr>", { desc = "Increase W
 -- better indenting
 vim.keymap.set("x", "<", "<gv")
 vim.keymap.set("x", ">", ">gv")
-

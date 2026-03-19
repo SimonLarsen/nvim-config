@@ -2,7 +2,16 @@ return {
     {
         "Vigemus/iron.nvim",
         cmd = { "IronAttach" },
-        opts = function()
+        opts = {},
+        keys = {
+            { "<leader>sl", function() require("iron.core").send_line() end, desc = "Send line to REPL." },
+            { "<leader>sf", function() require("iron.core").send_file() end, desc = "Send file to REPL." },
+            { "<leader>ss", function() require("iron.core").visual_send() end, mode="v", desc = "Send selection to REPL." },
+            { "<leader>tf", "<cmd>IronFocus<cr>", desc = "Focus terminal." },
+            { "<leader>th", "<cmd>IronHide<cr>", desc = "Hide terminal." },
+            { "<esc>", [[<C-\><C-n>]], mode="t", },
+        },
+        config = function(_, opts)
             local iron = require("iron.core")
             local view = require("iron.view")
             local common = require("iron.fts.common")
@@ -11,9 +20,7 @@ return {
                 config = {
                     repl_open_cmd = view.split.botright("40%"),
                     repl_definition = {
-                        sh = {
-                            command = {"bash"},
-                        },
+                        sh = { command = { "bash" } },
                         python = {
                             command = { "python" },
                             format = common.bracketed_paste_python,
@@ -24,23 +31,8 @@ return {
                         return ft
                     end,
                 },
-                keymaps = {
-                    -- send_motion = "<leader>sc",
-                    -- visual_send = "<leader>sc",
-                    -- send_line = "<leader>sl",
-                    -- send_file = "<leader>sf",
-                },
             }
-            return opts
-        end,
-        keys = function()
-            local iron = require("iron.core")
-            return {
-                { "<leader>sl", iron.send_line, desc = "Send line to REPL." },
-                { "<leader>sf", iron.send_file, desc = "Send file to REPL." },
-                { "<leader>ss", iron.visual_send, mode="v", desc = "Send selection to REPL." },
-                { "<esc>", [[<C-\><C-n>]], mode="t", },
-            }
+            iron.setup(opts)
         end,
     },
 }

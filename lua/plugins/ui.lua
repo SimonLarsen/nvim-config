@@ -35,6 +35,11 @@ return {
             source_selector = {
                 winbar = true,
                 statusline = false,
+                sources = {
+                    { source = "filesystem" },
+                    { source = "git_status" },
+                    { source = "document_symbols" },
+                },
             },
         },
         keys = {
