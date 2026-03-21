@@ -1,9 +1,8 @@
 return {
-    {
-        "Mofiqul/dracula.nvim",
-        lazy = false,
-        config = function()
-            vim.cmd[[colorscheme dracula]]
-        end,
-    },
+    "Mofiqul/dracula.nvim",
+    priority = 2000,
+    lazy = false,
+    config = function()
+        vim.cmd[[colorscheme dracula]]
+    end,
 }
