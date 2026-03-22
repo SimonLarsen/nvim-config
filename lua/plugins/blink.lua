@@ -8,7 +8,7 @@ return {
         completion = {
             keyword = { range = "full" },
             accept = { auto_brackets = { enabled = true } },
-            ghost_text = { enabled = true },
+            ghost_text = { enabled = false },
         },
         signature = { enabled = true },
         keymap = {
