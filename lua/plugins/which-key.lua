@@ -19,6 +19,7 @@ return {
                 { "<leader>b", group="Buffers" },
                 { "<leader>s", group="Send to REPL" },
                 { "<leader>t", group="Terminal" },
+                { "<leader>i", group="Inspect" },
             })
         end,
     },

@@ -8,6 +8,7 @@ return {
                 "bash",
                 "python",
                 "lua",
+                "markdown",
             },
         },
         config = function(_, opts)
