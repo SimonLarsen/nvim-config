@@ -4,15 +4,11 @@ return {
         lazy = false,
         build = ":TSUpdate",
         opts = {
-            ensure_installed = {
-                "bash",
-                "python",
-                "lua",
-                "markdown",
-            },
         },
         config = function(_, opts)
-            require("nvim-treesitter").setup(opts)
+            local ts = require("nvim-treesitter")
+            ts.setup(opts)
+            ts.install({ "bash", "python", "lua", "markdown" })
 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = { "python", "lua" },
