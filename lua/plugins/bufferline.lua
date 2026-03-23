@@ -3,7 +3,20 @@ return {
     event = "VeryLazy",
     version = "*",
     dependencies = "nvim-tree/nvim-web-devicons",
-    opts = {},
+    opts = {
+        options = {
+            show_buffer_close_icons = false,
+            show_close_icon = false,
+            separator_style = "thick",
+            offsets = {
+                {
+                    filetype = "neo-tree",
+                    text = "Files",
+                    separator = true,
+                },
+            },
+        },
+    },
     keys={
         { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
         { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
