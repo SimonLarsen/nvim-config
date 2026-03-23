@@ -1,3 +1,11 @@
+local LANGUAGES = {
+    "bash",
+    "python",
+    "lua",
+    "markdown",
+    "yaml",
+}
+
 return {
     {
         "nvim-treesitter/nvim-treesitter",
@@ -8,10 +16,10 @@ return {
         config = function(_, opts)
             local ts = require("nvim-treesitter")
             ts.setup(opts)
-            ts.install({ "bash", "python", "lua", "markdown" })
+            ts.install(LANGUAGES)
 
             vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "python", "lua" },
+                pattern = LANGUAGES,
                 callback = function()
                     vim.treesitter.start()
                     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
