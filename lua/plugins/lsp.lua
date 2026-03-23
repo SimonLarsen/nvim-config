@@ -17,6 +17,7 @@ return {
         require("mason-lspconfig").setup(opts)
 
         vim.diagnostic.config({
+            underline = false,
             severity_sort = true,
             signs = {
                 text = {
