@@ -16,6 +16,36 @@ return {
             local view = require("iron.view")
             local common = require("iron.fts.common")
 
+            local function expandtab(s, width)
+                -- Replaces tabs in indentation with spaces
+                _, ws_end = string.find(s, "%s*")
+                ws = string.sub(s, 1, ws_end)
+                ws = ws:gsub("\t", string.rep(" ", width))
+                rest = string.sub(s, ws_end+1)
+                return ws .. string.sub(s, ws_end+1)
+            end
+
+            local function fixed_format(lines, extra)
+                if #lines == 0 then
+                    return common.bracketed_paste_python(lines, extra)
+                end
+
+                -- Get indentation width in first lines
+                line = lines[1]
+                _, ws_end = string.find(line, "^%s*")
+                ws = expandtab(string.sub(line, 1, ws_end), 4)
+                ws_count = #ws
+
+                -- Remove equivalent amount of indentation in all lines
+                fixed = {}
+                for _, line in ipairs(lines) do
+                    line = expandtab(line, 4)
+                    line = string.sub(line, ws_count + 1)
+                    table.insert(fixed, line)
+                end
+                return common.bracketed_paste_python(fixed, extra)
+            end
+
             local opts = {
                 config = {
                     repl_open_cmd = view.split.botright("40%"),
@@ -23,7 +53,7 @@ return {
                         sh = { command = { "bash" } },
                         python = {
                             command = { "python" },
-                            format = common.bracketed_paste_python,
+                            format = fixed_format,
                             env = { PYTHON_BASIC_REPL = "1" },
                         },
                     },
