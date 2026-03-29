@@ -21,7 +21,6 @@ return {
                 _, ws_end = string.find(s, "%s*")
                 ws = string.sub(s, 1, ws_end)
                 ws = ws:gsub("\t", string.rep(" ", width))
-                rest = string.sub(s, ws_end+1)
                 return ws .. string.sub(s, ws_end+1)
             end
 

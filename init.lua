@@ -12,7 +12,11 @@ vim.opt.termguicolors = true  -- True color support
 vim.opt.wrap = false
 vim.opt.smartcase = true
 vim.opt.ignorecase = true  -- Ignore case when searching
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Keymaps
 vim.keymap.set("n", "<C-k>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
@@ -20,6 +24,27 @@ vim.keymap.set("n", "<C-j>", "<cmd>resize -2<cr>", { desc = "Decrease Window Hei
 vim.keymap.set("n", "<C-h>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 vim.keymap.set("n", "<C-l>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
+
 -- better indenting
 vim.keymap.set("x", "<", "<gv")
 vim.keymap.set("x", ">", ">gv")
+
+-- configure diagnostic
+vim.diagnostic.config({
+    update_in_insert = false,
+    severity_sort = true,
+    float = { border = "rounded", source = "if_many" },
+    underline = { severity = { min = vim.diagnostic.severity.ERROR } },
+    virtual_text = false,
+    virtual_lines = false,
+    jump = { float = true },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+        }
+    }
+})

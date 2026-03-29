@@ -6,8 +6,8 @@ return {
     opts = {
         bufdelete = { enabled = true },
         indent = { enabled = true },
-        statuscolumn = { enabled = true },
         picker = { enabled = true },
+        statuscolumn = { enabled = true },
     },
     keys = {
         { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
