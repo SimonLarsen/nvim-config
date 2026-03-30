@@ -18,12 +18,13 @@ return {
             local wk = require("which-key")
             wk.setup(opts)
             wk.add({
-                { "<leader>e", group="Explore files/symbols" },
                 { "<leader>b", group="Buffers" },
+                { "<leader>e", group="Explore files/symbols" },
+                { "<leader>f", group="Find" },
+                { "<leader>i", group="Inspect" },
+                { "<leader>m", group="Markdown" },
                 { "<leader>s", group="Send to REPL" },
                 { "<leader>t", group="Terminal" },
-                { "<leader>i", group="Inspect" },
-                { "<leader>f", group="Find" },
                 {
                     "<leader>in",
                     function()

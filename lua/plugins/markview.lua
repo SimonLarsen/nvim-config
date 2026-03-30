@@ -6,6 +6,7 @@ return {
         preview = { enable = false },
     },
     keys = {
-        { "<leader>m", "<cmd>Markview splitToggle<cr>", desc = "Toggle markdown preview (split)" },
+        { "<leader>mp", "<cmd>Markview toggle<cr>", desc = "Toggle markdown preview (buffer)" },
+        { "<leader>ms", "<cmd>Markview splitToggle<cr>", desc = "Toggle markdown preview (split)" },
     }
 }
