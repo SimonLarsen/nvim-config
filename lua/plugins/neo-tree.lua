@@ -12,6 +12,15 @@ return {
     opts = {
         theme = "dracula",
         sources = { "filesystem" },
+        open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf" },
+        enable_cursor_hijack = true,
+        window = {
+            mappings = {
+                ["l"] = "open",
+                ["h"] = "close_node",
+                ["<space>"] = "none",
+            }
+        }
     },
     keys = {
         {
