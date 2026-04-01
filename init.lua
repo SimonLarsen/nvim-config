@@ -25,13 +25,19 @@ vim.keymap.set("n", "<C-h>", "<cmd>vertical resize -2<cr>", { desc = "Decrease W
 vim.keymap.set("n", "<C-l>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { desc = "Code action" })
-vim.keymap.set("n", "grd", vim.lsp.buf.definition, { desc = "Go to definition" })
-vim.keymap.set("n", "gri", vim.lsp.buf.implementation, { desc = "Go to implementation" })
 vim.keymap.set("n", "grn", vim.lsp.buf.rename, { desc = "Rename" })
-vim.keymap.set("n", "grr", vim.lsp.buf.references, { desc = "Show references" })
-vim.keymap.set("n", "grt", vim.lsp.buf.type_definition, { desc = "Type definition" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
+vim.keymap.set("n",
+    "<leader>in",
+    function()
+        local handle = io.popen("nvidia-smi")
+        local result = handle:read("*a")
+        handle:close()
+        vim.notify(result)
+    end,
+    { desc = "nvidia-smi" }
+)
 
 -- better indenting
 vim.keymap.set("x", "<", "<gv")

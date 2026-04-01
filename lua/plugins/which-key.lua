@@ -25,16 +25,6 @@ return {
                 { "<leader>m", group="Markdown" },
                 { "<leader>s", group="Send to REPL" },
                 { "<leader>t", group="Terminal" },
-                {
-                    "<leader>in",
-                    function()
-                        local handle = io.popen("nvidia-smi")
-                        local result = handle:read("*a")
-                        handle:close()
-                        vim.notify(result)
-                    end,
-                    desc = "Print nvidia-smi",
-                },
             })
         end,
     },
