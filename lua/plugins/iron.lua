@@ -47,7 +47,7 @@ return {
 
             local opts = {
                 config = {
-                    repl_open_cmd = view.split.botright("40%"),
+                    repl_open_cmd = view.split("40%"),
                     repl_definition = {
                         sh = { command = { "bash" } },
                         python = {
