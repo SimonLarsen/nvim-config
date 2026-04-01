@@ -5,11 +5,12 @@ return {
     ---@type snacks.Config
     opts = {
         bigfile = { enabled = true },
-        quickfile = { enabled = true },
         bufdelete = { enabled = true },
         indent = { enabled = true },
+        image = { enabled = false },
         picker = { enabled = true },
         statuscolumn = { enabled = true },
+        quickfile = { enabled = true },
     },
     keys = {
         { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
