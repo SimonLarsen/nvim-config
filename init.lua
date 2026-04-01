@@ -24,6 +24,13 @@ vim.keymap.set("n", "<C-j>", "<cmd>resize -2<cr>", { desc = "Decrease Window Hei
 vim.keymap.set("n", "<C-h>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 vim.keymap.set("n", "<C-l>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
+vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { desc = "Code action" })
+vim.keymap.set("n", "grd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "gri", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+vim.keymap.set("n", "grn", vim.lsp.buf.rename, { desc = "Rename" })
+vim.keymap.set("n", "grr", vim.lsp.buf.references, { desc = "Show references" })
+vim.keymap.set("n", "grt", vim.lsp.buf.type_definition, { desc = "Type definition" })
+
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
 -- better indenting

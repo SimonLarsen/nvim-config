@@ -27,6 +27,7 @@ return {
         { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
         { "<leader>bf", "<cmd>BufferLinePick<cr>", desc = "Pick buffer" },
         { "<leader>bd", function() Snacks.bufdelete() end, desc = "Close buffer" },
+        { "<leader>bD", function() Snacks.bufdelete.all() end, desc = "Close all buffers" },
         { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "Pick buffer to close" },
     },
 }
