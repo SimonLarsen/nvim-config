@@ -13,10 +13,11 @@ vim.opt.wrap = false
 vim.opt.smartcase = true
 vim.opt.ignorecase = true  -- Ignore case when searching
 vim.opt.hlsearch = true
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
-vim.o.splitright = true
-vim.o.splitbelow = true
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.splitkeep = "screen"
 
 -- Keymaps
 vim.keymap.set("n", "<C-k>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })

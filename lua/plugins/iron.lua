@@ -1,14 +1,14 @@
 return {
     {
         "Vigemus/iron.nvim",
-        cmd = { "IronAttach" },
+        cmd = { "IronRepl", "IronFocus", "IronAttach" },
         opts = {},
         keys = {
             { "<leader>sl", function() require("iron.core").send_line() end, desc = "Send line to REPL." },
             { "<leader>sf", function() require("iron.core").send_file() end, desc = "Send file to REPL." },
             { "<leader>ss", function() require("iron.core").visual_send() end, mode="v", desc = "Send selection to REPL." },
             { "<leader>tf", "<cmd>IronFocus<cr>", desc = "Focus terminal." },
-            { "<leader>th", "<cmd>IronHide<cr>", desc = "Hide terminal." },
+            { "<leader>tt", "<cmd>IronRepl<cr>", desc = "Toggle terminal." },
             { "<esc>", [[<C-\><C-n>]], mode="t", },
         },
         config = function(_, opts)
@@ -57,7 +57,7 @@ return {
                         },
                     },
                     repl_filetype = function(bufnr, ft)
-                        return ft
+                        return "iron"
                     end,
                 },
             }
