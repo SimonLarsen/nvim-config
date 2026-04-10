@@ -9,10 +9,10 @@ local LANGUAGES = {
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "main",
         lazy = false,
         build = ":TSUpdate",
-        opts = {
-        },
+        opts = {},
         config = function(_, opts)
             local ts = require("nvim-treesitter")
             ts.setup(opts)

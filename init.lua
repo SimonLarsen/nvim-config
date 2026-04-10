@@ -25,20 +25,10 @@ vim.keymap.set("n", "<C-j>", "<cmd>resize -2<cr>", { desc = "Decrease Window Hei
 vim.keymap.set("n", "<C-h>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 vim.keymap.set("n", "<C-l>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
+
 vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { desc = "Code action" })
 vim.keymap.set("n", "grn", vim.lsp.buf.rename, { desc = "Rename" })
-
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
-vim.keymap.set("n",
-    "<leader>in",
-    function()
-        local handle = io.popen("nvidia-smi")
-        local result = handle:read("*a")
-        handle:close()
-        vim.notify(result)
-    end,
-    { desc = "nvidia-smi" }
-)
 
 -- better indenting
 vim.keymap.set("x", "<", "<gv")
@@ -61,4 +51,29 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.INFO] = " ",
         }
     }
+})
+
+-- enable ui2 (experimental)
+require("vim._core.ui2").enable({
+    enable = true, -- Whether to enable or disable the UI.
+    msg = { -- Options related to the message module.
+        ---@type "cmd"|"msg" Default message target, either in the
+        ---cmdline or in a separate ephemeral message window.
+        ---@type string|table<string, "cmd"|"msg"|"pager"> Default message target
+        ---or table mapping |ui-messages| kinds and triggers to a target.
+        targets = "cmd",
+        cmd = { -- Options related to messages in the cmdline window.
+            height = 0.5 -- Maximum height while expanded for messages beyond "cmdheight".
+        },
+        dialog = { -- Options related to dialog window.
+            height = 0.5, -- Maximum height.
+        },
+        msg = { -- Options related to msg window.
+            height = 0.5, -- Maximum height.
+            timeout = 4000, -- Time a message is visible in the message window.
+        },
+        pager = { -- Options related to message window.
+            height = 1, -- Maximum height.
+        },
+    },
 })

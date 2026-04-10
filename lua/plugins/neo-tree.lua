@@ -5,7 +5,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
-        "nvim-tree/nvim-web-devicons", -- optional, but recommended
+        "nvim-tree/nvim-web-devicons",
     },
     ---@module 'neo-tree'
     ---@type neotree.Config
