@@ -8,6 +8,7 @@ return {
         bufdelete = { enabled = true },
         indent = { enabled = true },
         image = { enabled = false },
+        notifier = { enabled = true },
         picker = { enabled = true },
         statuscolumn = { enabled = true },
         quickfile = { enabled = true },
