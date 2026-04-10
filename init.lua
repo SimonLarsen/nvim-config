@@ -18,6 +18,7 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.splitkeep = "screen"
+vim.opt.nrformats = "blank"  -- inc/dec number format
 
 -- Keymaps
 vim.keymap.set("n", "<C-k>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
