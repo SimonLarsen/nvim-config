@@ -55,6 +55,7 @@ return {
                             format = fixed_format,
                             env = { PYTHON_BASIC_REPL = "1" },
                         },
+                        lua = { command = { "lua" } },
                     },
                     repl_filetype = function(bufnr, ft)
                         return "iron"
