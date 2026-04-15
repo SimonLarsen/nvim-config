@@ -54,5 +54,7 @@ vim.diagnostic.config({
     }
 })
 
+vim.api.nvim_create_autocmd("TermOpen", { command = "startinsert" })
+
 -- enable ui2 (experimental)
 require("vim._core.ui2").enable({ enable = true })
