@@ -3,7 +3,7 @@ return {
     version = "1.*",
     opts = {
         appearance = {
-            nerd_font_variant = "mono",
+            nerd_font_variant = "normal",
         },
         completion = {
             keyword = { range = "full" },
