@@ -18,5 +18,6 @@ return {
         { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep files" },
         { "<leader>fh", function() Snacks.picker.help() end, desc = "Help pages" },
         { "<leader>fs", function() Snacks.picker.lsp_symbols() end, desc = "LSP workspace symbols" },
+        { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Find buffer" },
     },
 }
