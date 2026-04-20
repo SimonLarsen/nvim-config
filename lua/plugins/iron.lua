@@ -63,6 +63,19 @@ return {
                 },
             }
             iron.setup(opts)
+
+            vim.api.nvim_create_autocmd(
+                "WinEnter",
+                {
+                    callback = function()
+                        if vim.bo.filetype ~= "iron" then
+                            return
+                        end
+
+                        vim.cmd[[startinsert]]
+                    end,
+                }
+            )
         end,
     },
 }

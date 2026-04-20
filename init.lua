@@ -26,6 +26,8 @@ vim.keymap.set("n", "<C-j>", "<cmd>resize -2<cr>", { desc = "Decrease Window Hei
 vim.keymap.set("n", "<C-h>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 vim.keymap.set("n", "<C-l>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
+vim.keymap.set("n", "<leader>tv", "<cmd>vertical terminal<cr>", { desc = "Create terminal in vertical split" } )
+
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
 vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { desc = "Code action" })
@@ -54,7 +56,11 @@ vim.diagnostic.config({
     }
 })
 
-vim.api.nvim_create_autocmd("TermOpen", { command = "startinsert" })
+-- Always start insert mode when entering a terminal
+vim.api.nvim_create_autocmd(
+    { "TermOpen", "WinEnter" },
+    { pattern = "term://*", command = "startinsert" }
+)
 
 -- enable ui2 (experimental)
 require("vim._core.ui2").enable({ enable = true })
