@@ -56,11 +56,5 @@ vim.diagnostic.config({
     }
 })
 
--- Always start insert mode when entering a terminal
-vim.api.nvim_create_autocmd(
-    { "TermOpen", "WinEnter" },
-    { pattern = "term://*", command = "startinsert" }
-)
-
 -- enable ui2 (experimental)
 require("vim._core.ui2").enable({ enable = true })
