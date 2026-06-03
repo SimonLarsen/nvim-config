@@ -10,7 +10,6 @@ return {
     ---@module 'neo-tree'
     ---@type neotree.Config
     opts = {
-        theme = "dracula",
         sources = { "filesystem" },
         open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "edgy" },
         enable_cursor_hijack = true,
