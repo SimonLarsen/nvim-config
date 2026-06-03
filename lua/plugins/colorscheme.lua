@@ -3,11 +3,14 @@ return {
         "Mofiqul/dracula.nvim",
         priority = 1000,
         lazy = false,
-        opts = {},
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        lazy = false,
         config = function(_, opts)
-            local dracula = require("dracula")
-            dracula.setup(opts)
-            dracula.load()
+            vim.cmd[[colorscheme catppuccin-macchiato]]
         end,
     },
 }
