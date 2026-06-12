@@ -21,15 +21,8 @@ vim.opt.splitkeep = "screen"
 vim.opt.nrformats = "blank"  -- inc/dec number format
 
 -- Keymaps
-vim.keymap.set("n", "<C-k>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-vim.keymap.set("n", "<C-j>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-vim.keymap.set("n", "<C-h>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
-vim.keymap.set("n", "<C-l>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
-
 vim.keymap.set("n", "<leader>tv", "<cmd>vertical terminal<cr>", { desc = "Create terminal in vertical split" } )
-
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
-
 vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { desc = "Code action" })
 vim.keymap.set("n", "grn", vim.lsp.buf.rename, { desc = "Rename" })
 

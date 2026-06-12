@@ -12,6 +12,7 @@ return {
         exit_when_last = true,
         wo = { winbar = false },
         keys = {
+            -- disable defaults
             ["q"] = false,
             ["<c-q>"] = false,
             ["Q"] = false,
@@ -24,6 +25,22 @@ return {
             ["<c-w>+"] = false,
             ["<c-w>-"] = false,
             ["<c-w>="] = false,
+            -- increase width
+            ["<c-l>"] = function(win)
+                win:resize("width", 2)
+            end,
+            -- decrease width
+            ["<c-h>"] = function(win)
+                win:resize("width", -2)
+            end,
+            -- increase height
+            ["<c-k>"] = function(win)
+                win:resize("height", 2)
+            end,
+            -- decrease height
+            ["<c-j>"] = function(win)
+                win:resize("height", -2)
+            end,
         },
         left = {
             "neo-tree",
