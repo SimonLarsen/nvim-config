@@ -7,13 +7,22 @@ local function macro()
     end
 end
 
+local macchiato = require("catppuccin.palettes").get_palette("macchiato")
+
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
+        options = {
+            component_separators = "|",
+            section_separators = "",
+        },
         extensions = {"neo-tree", "trouble"},
         sections = {
-            lualine_a = {"mode", macro},
+            lualine_a = {
+                "mode",
+                { macro, color = { bg = macchiato.maroon } },
+            },
             lualine_b = {"branch", "diff", "diagnostics"},
             lualine_c = {"filename"},
             lualine_x = {"encoding", "fileformat", "filetype"},
