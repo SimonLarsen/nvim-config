@@ -29,5 +29,6 @@ return {
         { "<leader>bd", function() Snacks.bufdelete() end, desc = "Close buffer" },
         { "<leader>bD", function() Snacks.bufdelete.all() end, desc = "Close all buffers" },
         { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "Pick buffer to close" },
+        { "<leader>bC", function() Snacks.bufdelete.other() end, desc = "Delete all buffer except current one" },
     },
 }
