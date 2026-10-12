@@ -9,7 +9,30 @@ return {
         indent = { enabled = true },
         image = { enabled = false },
         notifier = { enabled = true },
-        picker = { enabled = true },
+        picker = {
+            enabled = true,
+            win = {
+                input = {
+                    keys = {
+                        ["y"] = {"copy_path", mode={"n"}},
+                        ["Y"] = {"copy_path_absolute", mode={"n"}},
+                    }
+                }
+            },
+            actions = {
+                copy_path=function(_, item)
+                    local path = vim.fs.normalize(item.file)
+                    vim.fn.setreg('"', path)
+                    vim.fn.setreg('+', path)
+                end,
+                copy_path_absolute=function(_, item)
+                    local path = vim.fs.normalize(item.file)
+                    path = vim.fs.abspath(path)
+                    vim.fn.setreg('"', path)
+                    vim.fn.setreg('+', path)
+                end,
+            }
+        },
         statuscolumn = { enabled = true },
         quickfile = { enabled = true },
     },
